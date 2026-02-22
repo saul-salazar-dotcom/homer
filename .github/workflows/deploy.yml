@@ -27,8 +27,8 @@ jobs:
       - name: Download assets
         uses: actions/checkout@v4
       
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v4
+      #- name: Configure GitHub Pages
+      #  uses: actions/configure-pages@v4
       
       - name: Upload artifact to GitHub Pages
         uses: actions/upload-pages-artifact@v3
