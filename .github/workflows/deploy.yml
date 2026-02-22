@@ -24,13 +24,22 @@ jobs:
           unzip homer.zip
           rm homer.zip
       
-      - name: Download assets
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          path: repo-files
       
-      - name: Configure GitHub Pages
+      - name: Copy your config
+        run: |
+          cp -r repo-files/assets/* assets/
+          rm -rf repo-files
+      
+      - name: Disable Jekyll
+        run: touch .nojekyll
+      
+      - name: Setup Pages
         uses: actions/configure-pages@v4
       
-      - name: Upload artifact to GitHub Pages
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
